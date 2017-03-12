@@ -1,0 +1,24 @@
+
+<div class="container">
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" *ngFor="let app of (allApps$ | async)">
+      <md-card>
+        <md-card-header class="success">
+          <div md-card-avatar></div>
+          <md-card-title>{{app.name}}</md-card-title>
+          <md-card-subtitle>{{app.url}}</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="{app.icon}">
+        <md-card-content>
+          <p>
+            {{app.name}}
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <input type="checkbox" [checked]="app.isFavorite" (click)="onClick(app, inputVar.checked)" #inputVar >
+          <md-checkbox style="margin:0 10px;" [(ngModel)]="app.isFavorite">Favourite</md-checkbox>
+        </md-card-actions>
+      </md-card>
+  </div>
+</div>
+</div>
